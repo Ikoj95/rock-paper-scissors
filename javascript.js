@@ -1,3 +1,6 @@
+let playerWins = 0;
+let computerWins = 0;
+
 
 function getComputerChoice() {
     let choices = ['rock', 'paper', 'scissors'];
@@ -5,44 +8,43 @@ function getComputerChoice() {
 }
 
 
-let playerWins = 0;
-let computerWins = 0;
-
-
 function rockPaperScissors(playerSelection, computerSelection) {
     if (!(playerSelection === 'rock' || playerSelection === 'paper' || playerSelection === 'scissors' || playerSelection === null)) {
-        console.log('wrong entry try again');
+        console.log('Wrong entry try again!');
     }
     else if (playerSelection === computerSelection) {
-        console.log('its same choice');
+        console.log("It's same choice!");
     }
-    else if ((playerSelection === 'rock' && computerSelection === 'paper') || (playerSelection === 'paper' && computerSelection === 'scissors') || (playerSelection === 'scissors' && computerSelection === 'rock')) {
+    else if ((playerSelection === 'rock' && computerSelection === 'paper') ||
+        (playerSelection === 'paper' && computerSelection === 'scissors') ||
+        (playerSelection === 'scissors' && computerSelection === 'rock')) {
         console.log(`COMPUTER WINS! ${computerSelection} beats ${playerSelection}`);
         computerWins = computerWins + 1;
+        console.log(`Current result : You ${playerWins} - ${computerWins} Machine`);
     }
     else {
         console.log(`YOU WIN! ${playerSelection} beats ${computerSelection}`);
         playerWins = playerWins + 1;
+        console.log(`Current result : You ${playerWins} - ${computerWins} Machine`);
     }
 }
 
 
 function game() {
-    let bool = true;
-    while (bool) {
+    while (true) {
         if (!(playerWins === 5 || computerWins === 5)) {
-            playerSelection = prompt("enter rock,paper or scissors").toLowerCase();
+            playerSelection = prompt("Enter rock,paper or scissors").toLowerCase();
             computerSelection = getComputerChoice();
             rockPaperScissors(playerSelection, computerSelection);
         }
         else {
-            bool = false;
+            break;
         }
     }
     if (playerWins === 5) {
-        alert("human won");
+        alert("YOU WON!");
     }
     else {
-        alert('machine won');
+        alert('MACHINE WON,MACHINE UPRISING BEGINS!');
     }
 }
