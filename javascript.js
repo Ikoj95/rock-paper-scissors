@@ -9,11 +9,9 @@ function getComputerChoice() {
 
 
 function rockPaperScissors(playerSelection, computerSelection) {
-    if (!(playerSelection === 'rock' || playerSelection === 'paper' || playerSelection === 'scissors' || playerSelection === null)) {
-        console.log('Wrong entry try again!');
-    }
-    else if (playerSelection === computerSelection) {
+    if (playerSelection === computerSelection) {
         console.log("It's same choice!");
+        msg2.textContent = "It's same choice! PLAY AGAIN!";
     }
     else if ((playerSelection === 'rock' && computerSelection === 'paper') ||
         (playerSelection === 'paper' && computerSelection === 'scissors') ||
@@ -31,20 +29,51 @@ function rockPaperScissors(playerSelection, computerSelection) {
 
 
 function game() {
-    while (true) {
-        if (!(playerWins === 5 || computerWins === 5)) {
-            playerSelection = prompt("Enter rock,paper or scissors").toLowerCase();
-            computerSelection = getComputerChoice();
-            rockPaperScissors(playerSelection, computerSelection);
-        }
-        else {
-            break;
-        }
+    if (this.id === 'rock') {
+        playerSelection = 'rock';
     }
-    if (playerWins === 5) {
-        alert("YOU WON!");
+    else if (this.id === 'paper') {
+        playerSelection = 'paper'
     }
     else {
-        alert('MACHINE WON,MACHINE UPRISING BEGINS!');
+        playerSelection = 'scissors';
+    };
+    computerSelection = getComputerChoice();
+    rockPaperScissors(playerSelection, computerSelection);
+    if (playerSelection === computerSelection) {
+        msg2.textContent = 'SAME CHOICE PLAY AGAIN!';
+    }
+    else {
+        msg2.textContent = '';
+    }
+    msg.textContent = `YOU ${playerWins} - ${computerWins} MACHINE`;
+    if (playerWins === 5) {
+        msg.textContent = 'YOU SAVED HUMANITY';
+        main.style.display = 'none';
+        reset.style.display = 'block';
+    }
+    else if (computerWins === 5) {
+        msg.textContent = 'MACHINES WON,MACHINE UPRISING BEGINS!';
+        main.style.display = 'none';
+        reset.style.display = 'block';
     }
 }
+
+
+const main = document.querySelector('.main');
+const msg = document.querySelector('.msg');
+const msg2 = document.querySelector('.msg2');
+const reset = document.querySelector('#reset');
+const btns = document.querySelectorAll('button:not(#reset)');
+
+
+btns.forEach(btn => btn.addEventListener('click', game));
+
+
+reset.addEventListener('click', () => {
+    playerWins = 0;
+    computerWins = 0;
+    main.style.display = 'flex';
+    msg.textContent = '';
+    reset.style.display = 'none';
+});
