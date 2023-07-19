@@ -32,7 +32,9 @@ function game() {
     computerSelection = getComputerChoice();
     if (this.id === 'rock') {
         playerSelection = 'rock';
-        
+        main.style.display = 'none';
+        secondary.append(document.getElementById('rock'),document.getElementById(computerSelection));
+        secondary.classList.add('.secondaryHidden');
     }
     else if (this.id === 'paper') {
         playerSelection = 'paper'

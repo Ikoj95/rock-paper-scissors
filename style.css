@@ -45,4 +45,10 @@ img::selection {
     align-items: center;
     justify-content: center;
     gap: 10em;
+    transform: scale(1.2);
+}
+
+
+.secondaryHidden {
+    
 }
