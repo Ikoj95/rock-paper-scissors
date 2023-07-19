@@ -32,7 +32,7 @@ function game() {
     computerSelection = getComputerChoice();
     if (this.id === 'rock') {
         playerSelection = 'rock';
-
+        
     }
     else if (this.id === 'paper') {
         playerSelection = 'paper'
@@ -66,13 +66,12 @@ const main = document.querySelector('.main');
 const msg = document.querySelector('.msg');
 const msg2 = document.querySelector('.msg2');
 const reset = document.querySelector('#reset');
-const btns = document.querySelectorAll('button:not(#reset)');
 const secondary = document.querySelector('.secondary');
 const images = document.querySelectorAll('img')
 
 
 images.forEach(img => img.addEventListener('click',game));
-// btns.forEach(btn => btn.addEventListener('click', game));
+
 
 
 reset.addEventListener('click', () => {
