@@ -2,15 +2,47 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1em;
+    gap: 10em;
+    -webkit-user-drag: none;
 }
+
 
 .msg {
     text-align: center;
 }
+
+
 .msg2 {
     text-align: center;
 }
-#reset{
+
+
+#reset {
     display: none;
+}
+
+
+h1 {
+    text-align: center;
+}
+
+
+img {
+    width: 12em;
+    height: 12em;
+    cursor: grab;
+    -webkit-user-drag: none;
+}
+
+
+img::selection {
+    background-color: transparent;
+}
+
+
+.secondary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10em;
 }

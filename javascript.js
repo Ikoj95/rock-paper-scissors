@@ -29,8 +29,10 @@ function rockPaperScissors(playerSelection, computerSelection) {
 
 
 function game() {
+    computerSelection = getComputerChoice();
     if (this.id === 'rock') {
         playerSelection = 'rock';
+
     }
     else if (this.id === 'paper') {
         playerSelection = 'paper'
@@ -38,7 +40,7 @@ function game() {
     else {
         playerSelection = 'scissors';
     };
-    computerSelection = getComputerChoice();
+    
     rockPaperScissors(playerSelection, computerSelection);
     if (playerSelection === computerSelection) {
         msg2.textContent = 'SAME CHOICE PLAY AGAIN!';
@@ -65,9 +67,12 @@ const msg = document.querySelector('.msg');
 const msg2 = document.querySelector('.msg2');
 const reset = document.querySelector('#reset');
 const btns = document.querySelectorAll('button:not(#reset)');
+const secondary = document.querySelector('.secondary');
+const images = document.querySelectorAll('img')
 
 
-btns.forEach(btn => btn.addEventListener('click', game));
+images.forEach(img => img.addEventListener('click',game));
+// btns.forEach(btn => btn.addEventListener('click', game));
 
 
 reset.addEventListener('click', () => {
