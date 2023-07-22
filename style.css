@@ -4,6 +4,7 @@
     justify-content: center;
     gap: 10em;
     -webkit-user-drag: none;
+    height: 100%;
 }
 
 
@@ -40,15 +41,16 @@ img::selection {
 }
 
 
-.secondary {
+.result {
+    height: 300px;
     display: flex;
-    align-items: center;
     justify-content: center;
-    gap: 10em;
-    transform: scale(1.2);
+    align-items: center;
+    gap: 2em;
+}
+
+#player,#computer {
+    cursor: default;
 }
 
 
-.secondaryHidden {
-    
-}
