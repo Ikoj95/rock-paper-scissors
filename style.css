@@ -13,13 +13,9 @@
 }
 
 
-.msg2 {
-    text-align: center;
-}
-
-
 #reset {
     display: none;
+    margin: auto;
 }
 
 
@@ -49,8 +45,20 @@ img::selection {
     gap: 2em;
 }
 
-#player,#computer {
+
+#player,
+#computer {
     cursor: default;
 }
 
 
+.played {
+    transform: scale(0.7);
+}
+
+
+.rock,
+.paper,
+.scissors {
+    transition: all 0.09s ease-out;
+}
